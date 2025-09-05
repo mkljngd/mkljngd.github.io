@@ -48,7 +48,14 @@ export default function Contact() {
       href: 'https://linkedin.com/in/mkljngd',
       color: 'from-blue-600 to-blue-800'
     }
-  ]
+  ] as Array<{
+    icon: any;
+    label: string;
+    value: string;
+    href: string;
+    color: string;
+    subtitle?: string;
+  }>
 
   return (
     <section id="contact" className="section-padding">

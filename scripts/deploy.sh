@@ -15,13 +15,9 @@ fi
 echo "📦 Installing dependencies..."
 npm install
 
-# Build the project
+# Build the project (includes static export)
 echo "🔨 Building the project..."
 npm run build
-
-# Export static files
-echo "📤 Exporting static files..."
-npm run export
 
 # Check if export was successful
 if [ ! -d "out" ]; then
