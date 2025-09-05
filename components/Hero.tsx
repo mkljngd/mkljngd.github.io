@@ -1,0 +1,184 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react'
+import { useEffect, useState } from 'react'
+
+export default function Hero() {
+  const [currentRole, setCurrentRole] = useState(0)
+  const roles = [
+    'Full Stack Developer',
+    'Software Engineer',
+    'Backend Engineer',
+    'Problem Solver'
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentRole((prev) => (prev + 1) % roles.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [roles.length])
+
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about')
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl animate-float" />
+      </div>
+
+      <div className="container-custom text-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          {/* Greeting */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg text-gray-300 mb-4"
+          >
+            Hello, I&apos;m
+          </motion.p>
+
+          {/* Name */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-5xl md:text-7xl font-bold mb-6"
+          >
+            <span className="gradient-text text-shadow-lg">Mukul Jangid</span>
+          </motion.h1>
+
+          {/* Dynamic Role */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="h-16 flex items-center justify-center mb-8"
+          >
+            <motion.span
+              key={currentRole}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl md:text-3xl font-semibold text-white"
+            >
+              {roles[currentRole]}
+            </motion.span>
+          </motion.div>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+          >
+            MS Computer Science graduate from Boston University with expertise in full-stack development, 
+            cloud architecture, and DevOps. Passionate about building scalable solutions and solving complex problems.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+          >
+            <motion.a
+              href="#projects"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-primary flex items-center space-x-2"
+            >
+              <span>View My Work</span>
+            </motion.a>
+            
+            <motion.a
+              href="/Mukul_Jangid_Cover_Letter_Resume.pdf"
+              download
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-secondary flex items-center space-x-2"
+            >
+              <Download size={20} />
+              <span>Download Resume</span>
+            </motion.a>
+          </motion.div>
+
+          {/* Social Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.2 }}
+            className="flex justify-center space-x-6 mb-16"
+          >
+            <motion.a
+              href="https://github.com/mkljngd"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, y: -5 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-3 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300"
+            >
+              <Github size={24} />
+            </motion.a>
+            
+            <motion.a
+              href="https://linkedin.com/in/mkljngd"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.2, y: -5 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-3 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300"
+            >
+              <Linkedin size={24} />
+            </motion.a>
+            
+            <motion.a
+              href="mailto:mkljngd@bu.edu"
+              whileHover={{ scale: 1.2, y: -5 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-3 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300"
+            >
+              <Mail size={24} />
+            </motion.a>
+          </motion.div>
+
+          {/* Scroll Indicator */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 1.4 }}
+            className="flex flex-col items-center"
+          >
+            <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
+            <motion.button
+              onClick={scrollToAbout}
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="p-2 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300"
+            >
+              <ChevronDown size={24} />
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
