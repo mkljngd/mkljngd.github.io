@@ -28,15 +28,15 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-secondary-500/10 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-secondary-500/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-accent-500/10 rounded-full blur-3xl animate-float" />
       </div>
 
-      <div className="container-custom text-center relative z-10">
+      <div className="container-custom text-center relative z-10 max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6"
           >
             <span className="gradient-text text-shadow-lg">Mukul Jangid</span>
           </motion.h1>
@@ -68,7 +68,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="h-16 flex items-center justify-center mb-8"
+            className="h-12 sm:h-16 flex items-center justify-center mb-6 sm:mb-8"
           >
             <motion.span
               key={currentRole}
@@ -76,7 +76,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl md:text-3xl font-semibold text-white"
+              className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center px-4"
             >
               {roles[currentRole]}
             </motion.span>
@@ -87,7 +87,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
           >
             MS Computer Science graduate from Boston University with expertise in full-stack development, 
             cloud architecture, and DevOps. Passionate about building scalable solutions and solving complex problems.
@@ -98,13 +98,13 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 px-4"
           >
             <motion.a
               href="#projects"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-primary flex items-center space-x-2"
+              className="btn-primary flex items-center justify-center space-x-2 w-full sm:w-auto min-h-[48px] text-base sm:text-lg"
             >
               <span>View My Work</span>
             </motion.a>
@@ -114,7 +114,7 @@ export default function Hero() {
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-secondary flex items-center space-x-2"
+              className="btn-secondary flex items-center justify-center space-x-2 w-full sm:w-auto min-h-[48px] text-base sm:text-lg"
             >
               <Download size={20} />
               <span>Download Resume</span>
@@ -126,7 +126,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="flex justify-center space-x-6 mb-16"
+            className="flex justify-center space-x-4 sm:space-x-6 mb-12 sm:mb-16"
           >
             <motion.a
               href="https://github.com/mkljngd"
@@ -134,9 +134,9 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, y: -5 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300"
+              className="p-3 sm:p-4 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
             >
-              <Github size={24} />
+              <Github size={20} className="sm:w-6 sm:h-6" />
             </motion.a>
             
             <motion.a
@@ -145,18 +145,18 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, y: -5 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300"
+              className="p-3 sm:p-4 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
             >
-              <Linkedin size={24} />
+              <Linkedin size={20} className="sm:w-6 sm:h-6" />
             </motion.a>
             
             <motion.a
               href="mailto:mkljngd@bu.edu"
               whileHover={{ scale: 1.2, y: -5 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300"
+              className="p-3 sm:p-4 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
             >
-              <Mail size={24} />
+              <Mail size={20} className="sm:w-6 sm:h-6" />
             </motion.a>
           </motion.div>
 

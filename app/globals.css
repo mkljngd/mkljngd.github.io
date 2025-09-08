@@ -6,6 +6,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden;
   }
   
   body {
@@ -13,6 +15,24 @@
     background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
     color: #ffffff;
     overflow-x: hidden;
+    /* Improve touch scrolling on mobile */
+    -webkit-overflow-scrolling: touch;
+    /* Prevent zoom on input focus on iOS */
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    body {
+      /* Reduce motion for better performance on mobile */
+      animation-duration: 0.3s;
+    }
+    
+    /* Improve touch targets */
+    button, a, input, textarea, select {
+      min-height: 44px;
+      min-width: 44px;
+    }
   }
 }
 
@@ -41,15 +61,19 @@
   }
   
   .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold rounded-lg hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+    @apply px-4 sm:px-6 py-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold rounded-lg hover:from-primary-600 hover:to-secondary-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+    /* Mobile touch optimization */
+    @apply active:scale-95;
   }
   
   .btn-secondary {
-    @apply px-6 py-3 glass text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105;
+    @apply px-4 sm:px-6 py-3 glass text-white font-semibold rounded-lg hover:bg-white/20 transition-all duration-300 transform hover:scale-105;
+    /* Mobile touch optimization */
+    @apply active:scale-95;
   }
   
   .section-padding {
-    @apply py-20 px-4 sm:px-6 lg:px-8;
+    @apply py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8;
   }
   
   .container-custom {

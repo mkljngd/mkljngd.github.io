@@ -41,7 +41,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
           {/* Left Column - Story */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -71,7 +71,7 @@ export default function About() {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {stats.map((stat, index) => {
                 const Icon = stat.icon
                 return (
@@ -80,11 +80,11 @@ export default function About() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="glass p-4 rounded-xl text-center"
+                    className="glass p-3 sm:p-4 rounded-xl text-center"
                   >
-                    <Icon className="w-8 h-8 text-primary-400 mx-auto mb-2" />
-                    <div className="text-sm text-gray-400 mb-1">{stat.label}</div>
-                    <div className="font-semibold text-white">{stat.value}</div>
+                    <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-400 mx-auto mb-2" />
+                    <div className="text-xs sm:text-sm text-gray-400 mb-1">{stat.label}</div>
+                    <div className="font-semibold text-white text-sm sm:text-base">{stat.value}</div>
                     <div className="text-xs text-gray-500">{stat.detail}</div>
                   </motion.div>
                 )
@@ -126,9 +126,9 @@ export default function About() {
             </div>
 
             {/* Key Strengths */}
-            <div className="glass p-6 rounded-2xl">
-              <h4 className="text-lg font-semibold text-white mb-4">Key Strengths</h4>
-              <div className="grid grid-cols-2 gap-3">
+            <div className="glass p-4 sm:p-6 rounded-2xl">
+              <h4 className="text-base sm:text-lg font-semibold text-white mb-4">Key Strengths</h4>
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
                 {[
                   'Problem Solving',
                   'Team Leadership',
@@ -142,9 +142,9 @@ export default function About() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={inView ? { opacity: 1, scale: 1 } : {}}
                     transition={{ duration: 0.4, delay: 0.8 + index * 0.05 }}
-                    className="bg-white/5 rounded-lg p-3 text-center"
+                    className="bg-white/5 rounded-lg p-2 sm:p-3 text-center"
                   >
-                    <span className="text-sm text-gray-300">{strength}</span>
+                    <span className="text-xs sm:text-sm text-gray-300">{strength}</span>
                   </motion.div>
                 ))}
               </div>

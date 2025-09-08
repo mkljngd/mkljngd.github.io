@@ -60,16 +60,16 @@ export default function Navigation() {
       }`}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-2"
           >
-            <div className="w-8 h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">M</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xs sm:text-sm">M</span>
             </div>
-            <span className="text-xl font-bold text-white">Mukul</span>
+            <span className="text-lg sm:text-xl font-bold text-white">Mukul</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -99,9 +99,9 @@ export default function Navigation() {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg glass text-white"
+            className="md:hidden p-2 rounded-lg glass text-white min-h-[40px] min-w-[40px] flex items-center justify-center"
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            {isOpen ? <X size={20} /> : <Menu size={20} />}
           </motion.button>
         </div>
       </div>
@@ -125,14 +125,14 @@ export default function Navigation() {
                       key={item.name}
                       onClick={() => scrollToSection(item.href)}
                       whileHover={{ x: 10 }}
-                      className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                      className={`flex items-center space-x-3 px-4 py-4 rounded-lg transition-all duration-300 min-h-[48px] ${
                         activeSection === item.href.substring(1)
                           ? 'text-primary-400 bg-white/10'
                           : 'text-gray-300 hover:text-white hover:bg-white/5'
                       }`}
                     >
                       <Icon size={18} />
-                      <span className="font-medium">{item.name}</span>
+                      <span className="font-medium text-base">{item.name}</span>
                     </motion.button>
                   )
                 })}
