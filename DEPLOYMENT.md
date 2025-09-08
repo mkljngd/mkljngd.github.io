@@ -93,7 +93,7 @@ portfolio-website/
 - **Component Styles**: Edit individual component files
 
 ### Update Resume
-- Replace `Mukul_Jangid_Cover_Letter_Resume.pdf` with your resume
+- Replace `Mukul_Jangid_Resume.pdf` with your resume
 - Update the download link in `components/Hero.tsx` and `components/Contact.tsx`
 
 ## 🔧 Configuration

@@ -136,7 +136,7 @@ export default function Contact() {
               <h4 className="text-lg font-semibold text-white mb-4">Quick Actions</h4>
               <div className="space-y-3">
                 <motion.a
-                  href="/Mukul_Jangid_Cover_Letter_Resume.pdf"
+                  href="/Mukul_Jangid_Resume.pdf"
                   download
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

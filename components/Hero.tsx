@@ -110,7 +110,7 @@ export default function Hero() {
             </motion.a>
             
             <motion.a
-              href="/Mukul_Jangid_Cover_Letter_Resume.pdf"
+              href="/Mukul_Jangid_Resume.pdf"
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

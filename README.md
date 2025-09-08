@@ -87,7 +87,7 @@ portfolio-website/
 │   ├── Projects.tsx         # Projects showcase
 │   └── Skills.tsx           # Skills and technologies
 ├── public/
-│   └── Mukul_Jangid_Cover_Letter_Resume.pdf
+│   └── Mukul_Jangid_Resume.pdf
 └── ...config files
 ```
 
