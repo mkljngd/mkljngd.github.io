@@ -87,27 +87,6 @@ export default function Projects() {
       github: '#',
       demo: '#'
     },
-    {
-      title: 'Heart Disorder Detection System',
-      description: 'Machine Learning-based heart disorder prognosis system using KNN, ANN, ID3, and SVM algorithms, validated on Cleveland and Hungary datasets.',
-      longDescription: 'Published research at AMLTA 2020 conference. Developed ensemble methods combining multiple ML algorithms for improved accuracy in heart disorder detection and prognosis.',
-      image: '/api/placeholder/600/400',
-      technologies: ['Python', 'Machine Learning', 'KNN', 'ANN', 'SVM', 'Research'],
-      features: [
-        'Multiple ML algorithm comparison',
-        'Cleveland & Hungary datasets',
-        'Published research paper',
-        'Ensemble method implementation',
-        'Clinical validation'
-      ],
-      icon: Heart,
-      color: 'from-red-500 to-rose-500',
-      timeline: '2020',
-      status: 'Published',
-      impact: 'Published in Springer journal',
-      github: '#',
-      demo: '#'
-    }
   ]
 
   const researchPapers = [
@@ -196,12 +175,16 @@ export default function Projects() {
                     <h4 className="text-sm font-semibold text-white mb-2">Technologies Used</h4>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, techIndex) => (
-                        <span
+                        <motion.span
                           key={tech}
-                          className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300 hover:bg-white/20 transition-colors duration-300"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={inView ? { opacity: 1, scale: 1 } : {}}
+                          transition={{ duration: 0.3, delay: index * 0.2 + techIndex * 0.05 }}
+                          whileHover={{ scale: 1.05 }}
+                          className="px-3 py-1.5 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 border border-primary-400/30 rounded-full text-xs font-medium text-primary-300 hover:from-primary-500/30 hover:to-secondary-500/30 hover:border-primary-400/50 hover:text-primary-200 transition-all duration-300 shadow-sm hover:shadow-primary-500/25"
                         >
                           {tech}
-                        </span>
+                        </motion.span>
                       ))}
                     </div>
                   </div>
@@ -209,12 +192,18 @@ export default function Projects() {
                   {/* Key Features */}
                   <div className="mb-6">
                     <h4 className="text-sm font-semibold text-white mb-2">Key Features</h4>
-                    <ul className="space-y-1">
+                    <ul className="space-y-2">
                       {project.features.slice(0, 3).map((feature, featureIndex) => (
-                        <li key={featureIndex} className="text-sm text-gray-300 flex items-center space-x-2">
-                          <div className="w-1 h-1 bg-primary-400 rounded-full" />
-                          <span>{feature}</span>
-                        </li>
+                        <motion.li 
+                          key={featureIndex} 
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={inView ? { opacity: 1, x: 0 } : {}}
+                          transition={{ duration: 0.3, delay: index * 0.2 + featureIndex * 0.1 }}
+                          className="text-sm text-gray-300 flex items-center space-x-3 group"
+                        >
+                          <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full flex-shrink-0 group-hover:shadow-lg group-hover:shadow-green-400/50 transition-all duration-300" />
+                          <span className="group-hover:text-white transition-colors duration-300">{feature}</span>
+                        </motion.li>
                       ))}
                     </ul>
                   </div>
@@ -288,33 +277,6 @@ export default function Projects() {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="text-center"
         >
-          <div className="glass p-8 rounded-2xl max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-white">Interested in My Work?</h3>
-            <p className="text-gray-300 mb-6">
-              I&apos;m always excited to discuss new projects and opportunities. Let&apos;s connect and explore how we can work together.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary"
-              >
-                Get In Touch
-              </motion.a>
-              <motion.a
-                href="https://github.com/mkljngd"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-secondary flex items-center justify-center space-x-2"
-              >
-                <Github size={20} />
-                <span>View GitHub</span>
-              </motion.a>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>

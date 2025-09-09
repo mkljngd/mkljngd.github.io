@@ -251,9 +251,10 @@ export default function Skills() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={inView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.3, delay: 1.6 + index * 0.1 + techIndex * 0.05 }}
-                      className="bg-white/5 rounded-lg py-2 px-3 text-sm text-gray-300 hover:bg-white/10 transition-colors duration-300"
+                      className="flex items-center space-x-2 py-2 px-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors duration-300 group"
                     >
-                      {tech}
+                      <div className="w-1.5 h-1.5 bg-gradient-to-r from-orange-400 to-yellow-400 rounded-full flex-shrink-0 group-hover:w-2 group-hover:h-2 transition-all duration-300" />
+                      <span className="text-sm text-gray-300 group-hover:text-white transition-colors duration-300">{tech}</span>
                     </motion.div>
                   ))}
                 </div>

@@ -64,7 +64,7 @@ export default function Navigation() {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 ml-4 xl:ml-0"
           >
             <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xs sm:text-sm">M</span>
@@ -99,7 +99,7 @@ export default function Navigation() {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg glass text-white min-h-[40px] min-w-[40px] flex items-center justify-center"
+            className="md:hidden p-2 rounded-lg glass text-white min-h-[40px] min-w-[40px] flex items-center justify-center mr-4 xl:mr-0"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </motion.button>

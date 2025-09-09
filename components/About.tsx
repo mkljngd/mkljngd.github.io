@@ -128,7 +128,7 @@ export default function About() {
             {/* Key Strengths */}
             <div className="glass p-4 sm:p-6 rounded-2xl">
               <h4 className="text-base sm:text-lg font-semibold text-white mb-4">Key Strengths</h4>
-              <div className="grid grid-cols-2 gap-2 sm:gap-3">
+              <div className="space-y-3">
                 {[
                   'Problem Solving',
                   'Team Leadership',
@@ -139,12 +139,13 @@ export default function About() {
                 ].map((strength, index) => (
                   <motion.div
                     key={strength}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={inView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.8 + index * 0.05 }}
-                    className="bg-white/5 rounded-lg p-2 sm:p-3 text-center"
+                    className="flex items-center space-x-3 group"
                   >
-                    <span className="text-xs sm:text-sm text-gray-300">{strength}</span>
+                    <div className="w-2 h-2 bg-gradient-to-r from-secondary-400 to-accent-400 rounded-full flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
+                    <span className="text-xs sm:text-sm text-gray-300 group-hover:text-white transition-colors duration-300">{strength}</span>
                   </motion.div>
                 ))}
               </div>

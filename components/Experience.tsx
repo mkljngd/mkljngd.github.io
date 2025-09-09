@@ -228,10 +228,10 @@ export default function Experience() {
                               initial={{ opacity: 0, x: -20 }}
                               animate={inView ? { opacity: 1, x: 0 } : {}}
                               transition={{ duration: 0.5, delay: index * 0.2 + achievementIndex * 0.1 }}
-                              className="text-sm text-gray-300 flex items-start space-x-2"
+                              className="text-sm text-gray-300 flex items-start space-x-3 group"
                             >
-                              <div className="w-1.5 h-1.5 bg-primary-400 rounded-full mt-2 flex-shrink-0" />
-                              <span>{achievement}</span>
+                              <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mt-1.5 flex-shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-purple-400/50 transition-all duration-300" />
+                              <span className="group-hover:text-white transition-colors duration-300">{achievement}</span>
                             </motion.li>
                           ))}
                         </ul>
@@ -250,7 +250,8 @@ export default function Experience() {
                               initial={{ opacity: 0, scale: 0.8 }}
                               animate={inView ? { opacity: 1, scale: 1 } : {}}
                               transition={{ duration: 0.3, delay: index * 0.2 + techIndex * 0.05 }}
-                              className="px-3 py-1 bg-white/10 rounded-full text-xs text-gray-300 hover:bg-white/20 transition-colors duration-300"
+                              whileHover={{ scale: 1.05 }}
+                              className="px-3 py-1.5 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 border border-primary-400/30 rounded-full text-xs font-medium text-primary-300 hover:from-primary-500/30 hover:to-secondary-500/30 hover:border-primary-400/50 hover:text-primary-200 transition-all duration-300 shadow-sm hover:shadow-primary-500/25"
                             >
                               {tech}
                             </motion.span>
