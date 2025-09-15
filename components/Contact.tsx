@@ -125,52 +125,6 @@ export default function Contact() {
                 })}
               </div>
             </div>
-
-            {/* Quick Actions */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="glass p-6 rounded-2xl"
-            >
-              <h4 className="text-lg font-semibold text-white mb-4">Quick Actions</h4>
-              <div className="space-y-3">
-                <motion.a
-                  href="/Mukul_Jangid_Resume.pdf"
-                  download
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300"
-                >
-                  <Download className="w-5 h-5 text-primary-400" />
-                  <span className="text-white">Download Resume</span>
-                </motion.a>
-                
-                <motion.a
-                  href="https://github.com/mkljngd"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300"
-                >
-                  <Github className="w-5 h-5 text-primary-400" />
-                  <span className="text-white">View GitHub Profile</span>
-                </motion.a>
-                
-                <motion.a
-                  href="https://linkedin.com/in/mkljngd"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center space-x-3 p-3 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300"
-                >
-                  <Linkedin className="w-5 h-5 text-primary-400" />
-                  <span className="text-white">Connect on LinkedIn</span>
-                </motion.a>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
 

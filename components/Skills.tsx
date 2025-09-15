@@ -32,14 +32,13 @@ export default function Skills() {
       color: 'from-blue-500 to-cyan-500',
       skills: [
         { name: 'Python', level: 95, icon: FileCode },
+        { name: 'Django', level: 95 },
         { name: 'Java', level: 90, icon: Coffee },
-        { name: 'TypeScript', level: 88, icon: FileText },
-        { name: 'React', level: 85, icon: Zap },
-        { name: 'Node.js', level: 82, icon: Terminal },
-        { name: 'Django', level: 80 },
-        { name: 'Angular', level: 75 },
         { name: 'Spring Boot', level: 85 },
-        { name: 'Go', level: 70 },
+        { name: 'TypeScript', level: 85, icon: FileText },
+        { name: 'Angular', level: 85 },
+        { name: 'Node.js', level: 85, icon: Terminal },
+        { name: 'React', level: 80, icon: Zap },
         { name: 'Shell Scripting', level: 80 }
       ]
     },
@@ -48,15 +47,13 @@ export default function Skills() {
       icon: Cloud,
       color: 'from-purple-500 to-pink-500',
       skills: [
+        { name: 'Docker', level: 90, icon: Container },
         { name: 'AWS', level: 85, icon: Globe },
+        { name: 'Kubernetes', level: 85, icon: Layers },
         { name: 'GCP', level: 80 },
-        { name: 'Docker', level: 88, icon: Container },
-        { name: 'Kubernetes', level: 82, icon: Layers },
-        { name: 'Jenkins', level: 75 },
-        { name: 'GitHub Actions', level: 80 },
         { name: 'CI/CD Pipelines', level: 85 },
-        { name: 'Terraform', level: 70 },
-        { name: 'Monitoring', level: 75 }
+        { name: 'GitHub Actions', level: 85 },
+        { name: 'Jenkins', level: 85 }
       ]
     },
     {
@@ -68,11 +65,12 @@ export default function Skills() {
         { name: 'MySQL', level: 80 },
         { name: 'MongoDB', level: 75 },
         { name: 'Redis', level: 70 },
-        { name: 'Elasticsearch', level: 65 },
         { name: 'Git', level: 90, icon: GitBranch },
         { name: 'Linux', level: 85 },
         { name: 'REST APIs', level: 90 },
-        { name: 'Microservices', level: 80 }
+        { name: 'Microservices', level: 80 },
+        { name: 'Celery', level: 80 },
+        { name: 'Elasticsearch', level: 65 },
       ]
     },
     {
@@ -80,12 +78,11 @@ export default function Skills() {
       icon: Server,
       color: 'from-orange-500 to-red-500',
       skills: [
-        { name: 'System Design', level: 85 },
+        { name: 'Code Refactoring', level: 95 },
+        { name: 'Performance Tuning', level: 90 },
         { name: 'Code Review', level: 90 },
-        { name: 'Testing', level: 80 },
         { name: 'Agile', level: 85 },
-        { name: 'Performance Tuning', level: 80 },
-        { name: 'Security', level: 75 },
+        { name: 'Testing', level: 80 },
         { name: 'Documentation', level: 85 },
         { name: 'Mentoring', level: 80 }
       ]

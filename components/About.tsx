@@ -152,30 +152,6 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="text-center mt-16"
-        >
-          <div className="glass p-8 rounded-2xl max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-white">Let&apos;s Build Something Amazing Together</h3>
-            <p className="text-gray-300 mb-6">
-              I&apos;m always excited to work on challenging projects and collaborate with talented teams. 
-              Whether you need a full-stack developer, DevOps engineer, or technical consultant, I&apos;m ready to help.
-            </p>
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="btn-primary inline-flex items-center space-x-2"
-            >
-              <span>Get In Touch</span>
-            </motion.a>
-          </div>
-        </motion.div>
       </div>
     </section>
   )
