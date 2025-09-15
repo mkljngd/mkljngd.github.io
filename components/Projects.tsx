@@ -226,7 +226,6 @@ export default function Projects() {
                       className="flex-1 btn-primary flex items-center justify-center space-x-2 text-sm"
                     >
                       <ExternalLink size={16} />
-                      <span>Demo</span>
                     </motion.a>
                   </div>
                 </div>
