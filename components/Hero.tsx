@@ -28,7 +28,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section id="home" className="min-h-screen flex items-center justify-start relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow" />
@@ -36,19 +36,19 @@ export default function Hero() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-accent-500/10 rounded-full blur-3xl animate-float" />
       </div>
 
-      <div className="container-custom text-center relative z-10 max-w-6xl mx-auto">
+      <div className="w-full text-left relative z-10 pl-8 sm:pl-12 lg:pl-16 xl:pl-[108px]">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          className="max-w-2xl"
         >
           {/* Greeting */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-text-secondary mb-4"
+            className="text-3xl text-text-secondary mb-4"
           >
             Hello, I&apos;m
           </motion.p>
@@ -58,7 +58,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6"
+            className="text-[34px] sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6"
           >
             <span className="gradient-text text-shadow-lg">Mukul Jangid</span>
           </motion.h1>
@@ -68,7 +68,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="h-12 sm:h-16 flex items-center justify-center mb-6 sm:mb-8"
+            className="h-12 sm:h-16 flex items-center justify-start mb-6 sm:mb-8"
           >
             <motion.span
               key={currentRole}
@@ -76,14 +76,14 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="text-xl sm:text-2xl md:text-3xl font-semibold text-text-primary text-center px-4"
+              className="text-xl sm:text-2xl md:text-3xl font-semibold text-text-primary text-left"
             >
               {roles[currentRole]}
             </motion.span>
           </motion.div>
 
           {/* Description */}
-          <motion.p
+          {/* <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
@@ -91,14 +91,14 @@ export default function Hero() {
           >
             MS Computer Science graduate from Boston University with expertise in full-stack development, 
             cloud architecture, and DevOps. Passionate about building scalable solutions and solving complex problems.
-          </motion.p>
+          </motion.p> */}
 
           {/* CTA Buttons */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-12 sm:mb-16 px-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-start items-start mb-12 sm:mb-16"
           >
             <motion.a
               href="#projects"
@@ -119,14 +119,14 @@ export default function Hero() {
               <Download size={20} />
               <span>Download Resume</span>
             </motion.a>
-          </motion.div>
+          </motion.div> */}
 
           {/* Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="flex justify-center space-x-4 sm:space-x-6 mb-12 sm:mb-16"
+            className="flex justify-start space-x-4 sm:space-x-6 mb-12 sm:mb-16"
           >
             <motion.a
               href="https://github.com/mkljngd"
@@ -165,9 +165,9 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1.4 }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center justify-center fixed bottom-8 left-1/2 transform -translate-x-1/2"
           >
-            <span className="text-sm text-text-secondary mb-2">Scroll to explore</span>
+            {/* <span className="text-sm text-text-secondary mb-2">Scroll to explore</span> */}
             <motion.button
               onClick={scrollToAbout}
               animate={{ y: [0, 10, 0] }}

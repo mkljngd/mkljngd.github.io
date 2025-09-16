@@ -83,6 +83,8 @@ export default function Navigation() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-300 ${
+                    item.name === 'Home' ? 'ml-8' : ''
+                  } ${
                     activeSection === item.href.substring(1)
                       ? 'text-primary-500 bg-background-dark/20'
                       : 'text-text-secondary hover:text-text-primary hover:bg-background-dark/10'
