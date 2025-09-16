@@ -42,7 +42,7 @@ export default function Projects() {
       timeline: 'Sep - Dec 2024',
       status: 'Completed',
       impact: 'Reduces food waste through intelligent planning',
-      github: '#',
+      github: 'https://github.com/mkljngd/Smart-Meal-Planner',
       demo: '#'
     },
     {
@@ -63,7 +63,7 @@ export default function Projects() {
       timeline: 'Feb - May 2024',
       status: 'Completed',
       impact: 'Optimized routing for large-scale applications',
-      github: '#',
+      github: 'https://github.com/mkljngd/RoadNetOptimizer',
       demo: '#'
     },
     {
@@ -84,8 +84,7 @@ export default function Projects() {
       timeline: 'Sep - Dec 2023',
       status: 'Completed',
       impact: 'Improved model selection efficiency',
-      github: '#',
-      demo: '#'
+      github: 'https://github.com/mkljngd/LLM-Benchmarking',
     },
   ]
 
@@ -94,13 +93,15 @@ export default function Projects() {
       title: 'Heart Disorder Prognosis Employing KNN, ANN, ID3, and SVM',
       journal: 'Springer - AMLTA 2020',
       description: 'Machine Learning based heart disorder detection system validated on clinical datasets',
-      icon: Heart
+      icon: Heart,
+      link: 'https://link.springer.com/chapter/10.1007/978-981-15-3383-9_47',
     },
     {
       title: 'Ensemble Method Combination: Bagging and Boosting',
       journal: 'Springer - ICACTA 2020',
       description: 'Applied Bagging and Boosting techniques to reduce variance and bias in ML models',
-      icon: BarChart3
+      icon: BarChart3,
+      link: 'https://link.springer.com/chapter/10.1007/978-981-15-3242-9_38',
     }
   ]
 
@@ -219,14 +220,6 @@ export default function Projects() {
                       <Github size={16} />
                       <span>Code</span>
                     </motion.a>
-                    <motion.a
-                      href={project.demo}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex-1 btn-primary flex items-center justify-center space-x-2 text-sm"
-                    >
-                      <ExternalLink size={16} />
-                    </motion.a>
                   </div>
                 </div>
               </motion.div>
@@ -246,24 +239,30 @@ export default function Projects() {
             {researchPapers.map((paper, index) => {
               const Icon = paper.icon
               return (
-                <motion.div
+                <motion.a
                   key={paper.title}
+                  href={paper.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
-                  className="glass p-6 rounded-xl hover:scale-105 transition-transform duration-300"
+                  className="glass p-6 rounded-xl hover:scale-105 transition-all duration-300 group cursor-pointer block"
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:shadow-lg group-hover:shadow-primary-500/25 transition-all duration-300">
                       <Icon className="w-6 h-6 text-white" />
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-white mb-2">{paper.title}</h4>
+                    <div className="flex-1">
+                      <div className="flex items-start justify-between">
+                        <h4 className="font-semibold text-white mb-2 group-hover:text-primary-300 transition-colors duration-300">{paper.title}</h4>
+                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-400 transition-colors duration-300 flex-shrink-0 ml-2" />
+                      </div>
                       <p className="text-sm text-primary-400 mb-2">{paper.journal}</p>
-                      <p className="text-gray-300 text-sm leading-relaxed">{paper.description}</p>
+                      <p className="text-gray-300 text-sm leading-relaxed mb-3">{paper.description}</p>
                     </div>
                   </div>
-                </motion.div>
+                </motion.a>
               )
             })}
           </div>

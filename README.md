@@ -1,161 +1,68 @@
-# Mukul Jangid - Portfolio Website
+# My Portfolio Website
 
-A modern, responsive portfolio website showcasing my skills, projects, and professional experience as a Full Stack Developer and Software Engineer.
+Hey! This is my personal portfolio website where I showcase my work as a software engineer. I built this to give potential employers and collaborators a better sense of who I am and what I can do.
 
-## 🚀 Features
+## What's in here
 
-- **Modern Design**: Clean, professional design with glassmorphism effects and smooth animations
-- **Responsive Layout**: Mobile-first design that works perfectly on all devices
-- **Interactive Elements**: Smooth scroll animations, hover effects, and particle background
-- **Performance Optimized**: Built with Next.js 14 and optimized for speed
-- **SEO Friendly**: Proper meta tags and structured data for better search visibility
-- **Accessibility**: WCAG compliant with proper semantic HTML and keyboard navigation
+- **About me**: My journey from Mumbai to Boston, education, and what drives me
+- **Skills**: The tech stack I work with (Python, React, AWS, etc.)
+- **Projects**: Some of the cool stuff I've built, including a meal planner and route optimization system
+- **Experience**: My work history and the teams I've led
+- **Research**: My published papers on machine learning applications
 
-## 🛠️ Tech Stack
+## Tech stuff
 
-- **Framework**: Next.js 14 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS with custom animations
-- **Animations**: Framer Motion for smooth transitions
-- **Particles**: TSParticles for interactive background
-- **Icons**: Lucide React
-- **Deployment**: GitHub Pages
+I used Next.js 14 with TypeScript for this site. The animations are done with Framer Motion, and I styled everything with Tailwind CSS. It's fully responsive and works great on mobile.
 
-## 📱 Sections
+**Main technologies:**
+- Next.js 14 + TypeScript
+- Tailwind CSS for styling
+- Framer Motion for animations
+- Deployed on GitHub Pages
 
-1. **Hero Section**: Dynamic role display with animated background
-2. **About**: Personal story, education, and key strengths
-3. **Skills**: Interactive technology showcase with progress bars
-4. **Projects**: Featured projects with detailed descriptions
-5. **Experience**: Professional timeline with achievements
-6. **Contact**: Contact form and social links
+## Running it locally
 
-## 🚀 Getting Started
+If you want to run this locally (maybe you're thinking of hiring me? 😄):
 
-### Prerequisites
-
-- Node.js 18+ 
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
 ```bash
+# Clone the repo
 git clone https://github.com/mkljngd/portfolio-website.git
 cd portfolio-website
-```
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-# or
-yarn install
-```
 
-3. Run the development server:
-```bash
+# Start the dev server
 npm run dev
-# or
-yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Building for Production
-
+To build for production:
 ```bash
 npm run build
-npm run export
 ```
 
-## 📁 Project Structure
+## About me
 
-```
-portfolio-website/
-├── app/
-│   ├── globals.css          # Global styles and Tailwind config
-│   ├── layout.tsx           # Root layout with metadata
-│   └── page.tsx             # Main page component
-├── components/
-│   ├── About.tsx            # About section
-│   ├── Contact.tsx          # Contact form and info
-│   ├── Experience.tsx       # Professional timeline
-│   ├── Hero.tsx             # Hero section with animations
-│   ├── LoadingScreen.tsx    # Loading animation
-│   ├── Navigation.tsx       # Responsive navigation
-│   ├── ParticleBackground.tsx # Interactive particles
-│   ├── Projects.tsx         # Projects showcase
-│   └── Skills.tsx           # Skills and technologies
-├── public/
-│   └── Mukul_Jangid_Resume.pdf
-└── ...config files
-```
+I'm a software engineer with an MS in Computer Science from Boston University. I've worked on everything from full-stack web apps to machine learning research. Currently leading a React development team at IpserLab LLC.
 
-## 🎨 Customization
+**Some highlights:**
+- Built a SaaS surveys module that generated $200K ARR for Fortune 500 companies
+- Published research papers on ML applications in healthcare
+- Led teams of 5+ developers
+- Experience with Python, React, AWS, Docker, and more
 
-### Colors
-The color scheme can be customized in `tailwind.config.js`:
-- Primary: Blue gradient
-- Secondary: Purple gradient  
-- Accent: Yellow gradient
+## Contact
 
-### Content
-Update the following files to customize content:
-- `components/Hero.tsx` - Personal introduction and roles
-- `components/About.tsx` - Personal story and stats
-- `components/Skills.tsx` - Technology skills and achievements
-- `components/Projects.tsx` - Project details and descriptions
-- `components/Experience.tsx` - Professional experience timeline
-- `components/Contact.tsx` - Contact information
-
-### Styling
-- Global styles: `app/globals.css`
-- Component styles: Individual component files
-- Animations: Framer Motion configurations
-
-## 🚀 Deployment
-
-### GitHub Pages
-
-1. Update `next.config.js` for static export:
-```javascript
-const nextConfig = {
-  output: 'export',
-  trailingSlash: true,
-  images: {
-    unoptimized: true
-  }
-}
-```
-
-2. Build and export:
-```bash
-npm run build
-npm run export
-```
-
-3. Deploy the `out` folder to GitHub Pages.
-
-### Other Platforms
-
-The site can be deployed to any static hosting platform:
-- Vercel (recommended for Next.js)
-- Netlify
-- AWS S3 + CloudFront
-- Firebase Hosting
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 📞 Contact
+Want to chat? I'm always interested in new opportunities and interesting projects.
 
 - **Email**: mkljngd@bu.edu
 - **Phone**: (857) 321-3168
 - **LinkedIn**: [linkedin.com/in/mkljngd](https://linkedin.com/in/mkljngd)
 - **GitHub**: [github.com/mkljngd](https://github.com/mkljngd)
-- **Location**: Boston, MA (Open to relocate)
+- **Location**: Boston, MA (willing to relocate)
 
 ---
 
-Built with ❤️ by Mukul Jangid
+*Thanks for checking out my work!*
