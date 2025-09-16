@@ -3,5 +3,9 @@
 import CodeSnippets from './CodeSnippets'
 
 export default function CodeAnimations() {
-  return <CodeSnippets />
+  return (
+    <div className="hidden md:block">
+      <CodeSnippets />
+    </div>
+  )
 }

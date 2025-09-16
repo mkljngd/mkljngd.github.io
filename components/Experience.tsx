@@ -266,37 +266,6 @@ export default function Experience() {
           </div>
         </div>
 
-        {/* Summary Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {[
-            { label: 'Years Experience', value: '3+', icon: Briefcase },
-            { label: 'Companies', value: '4', icon: Building },
-            { label: 'Research Papers', value: '2', icon: BookOpen },
-            { label: 'Team Members Led', value: '5+', icon: Users }
-          ].map((stat, index) => {
-            const Icon = stat.icon
-            return (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
-                className="glass p-6 rounded-xl text-center group hover:scale-105 transition-transform duration-300"
-              >
-                <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-3">
-                  <Icon className="w-6 h-6 text-white" />
-                </div>
-                <div className="text-2xl font-bold text-text-primary mb-1">{stat.value}</div>
-                <div className="text-sm text-text-secondary">{stat.label}</div>
-              </motion.div>
-            )
-          })}
-        </motion.div>
       </div>
     </section>
   )
