@@ -1,8 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useState } from "react";
 import {
+  Bug,
   Code,
   Coffee,
   FileCode,
@@ -29,6 +31,7 @@ import {
   FileCog,
   PlayCircle,
   Search,
+  ChevronDown,
 } from "lucide-react";
 
 export default function Skills() {
@@ -36,6 +39,8 @@ export default function Skills() {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
   const skillCategories = [
     {
@@ -93,11 +98,14 @@ export default function Skills() {
       skills: [
         { name: "Code Refactoring", level: 95, icon: FileCog },
         { name: "Performance Tuning", level: 90, icon: Gauge },
+        { name: "Debugging", level: 90, icon: Bug },
         { name: "Code Review", level: 90, icon: ClipboardCheck },
+        { name: "SDLC", level: 85, icon: Workflow },
         { name: "Agile", level: 85, icon: Workflow },
         { name: "Testing", level: 85, icon: Activity },
-        { name: "Documentation", level: 85, icon: BookOpen },
         { name: "Mentoring", level: 80, icon: Users },
+        { name: "System Design", level: 85, icon: Cpu },
+        { name: "Documentation", level: 75, icon: BookOpen },
       ],
     },
   ];
@@ -145,75 +153,102 @@ export default function Skills() {
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16 items-start">
           {skillCategories.map((category, categoryIndex) => {
             const Icon = category.icon;
+            const isExpanded = expandedCard === categoryIndex;
             return (
               <motion.div
                 key={category.title}
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-                className="glass p-4 sm:p-6 lg:p-8 rounded-2xl"
+                className="glass rounded-2xl overflow-hidden cursor-pointer"
+                onClick={() => setExpandedCard(isExpanded ? null : categoryIndex)}
+                onMouseEnter={() => setExpandedCard(categoryIndex)}
+                onMouseLeave={() => setExpandedCard(null)}
               >
-                <div className="flex items-center mb-4 sm:mb-6">
-                  <div
-                    className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center mr-3 sm:mr-4`}
-                  >
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                {/* Header - Always Visible */}
+                <div className="flex items-center justify-between p-4 sm:p-6 lg:p-8">
+                  <div className="flex items-center">
+                    <div
+                      className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${category.color} rounded-lg flex items-center justify-center mr-3 sm:mr-4`}
+                    >
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-text-primary">
+                      {category.title}
+                    </h3>
                   </div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-text-primary">
-                    {category.title}
-                  </h3>
+                  
+                  {/* Expand/Collapse Icon */}
+                  <motion.div
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ChevronDown className="w-5 h-5 text-text-secondary" />
+                  </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  {category.skills.map((skill, skillIndex) => {
-                    const SkillIcon = skill.icon;
-                    return (
-                      <motion.div
-                        key={skill.name}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={inView ? { opacity: 1, scale: 1 } : {}}
-                        transition={{
-                          duration: 0.5,
-                          delay: categoryIndex * 0.2 + skillIndex * 0.05,
-                        }}
-                        className="group cursor-pointer"
-                      >
-                        <div className="bg-background-dark/20 rounded-lg p-3 sm:p-4 hover:bg-background-dark/30 transition-all duration-300">
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center space-x-2">
-                              {SkillIcon && (
-                                <SkillIcon className="w-4 h-4 text-primary-400" />
-                              )}
-                              <span className="text-xs sm:text-sm font-medium text-text-primary">
-                                {skill.name}
-                              </span>
-                            </div>
-                            <span className="text-xs text-text-secondary">
-                              {skill.level}%
-                            </span>
-                          </div>
-                          <div className="w-full bg-background-border rounded-full h-2">
-                            <motion.div
-                              initial={{ width: 0 }}
-                              animate={
-                                inView ? { width: `${skill.level}%` } : {}
-                              }
-                              transition={{
-                                duration: 1,
-                                delay:
-                                  categoryIndex * 0.2 + skillIndex * 0.05 + 0.5,
-                              }}
-                              className={`h-2 bg-gradient-to-r ${category.color} rounded-full`}
-                            />
-                          </div>
+                {/* Expandable Content */}
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                          {category.skills.map((skill, skillIndex) => {
+                            const SkillIcon = skill.icon;
+                            return (
+                              <motion.div
+                                key={skill.name}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{
+                                  duration: 0.4,
+                                  delay: skillIndex * 0.05,
+                                }}
+                                className="group"
+                              >
+                                <div className="bg-background-dark/20 rounded-lg p-3 sm:p-4 hover:bg-background-dark/30 transition-all duration-300">
+                                  <div className="flex items-center justify-between mb-2">
+                                    <div className="flex items-center space-x-2">
+                                      {SkillIcon && (
+                                        <SkillIcon className="w-4 h-4 text-primary-400" />
+                                      )}
+                                      <span className="text-xs sm:text-sm font-medium text-text-primary">
+                                        {skill.name}
+                                      </span>
+                                    </div>
+                                    <span className="text-xs text-text-secondary">
+                                      {skill.level}%
+                                    </span>
+                                  </div>
+                                  <div className="w-full bg-background-border rounded-full h-2">
+                                    <motion.div
+                                      initial={{ width: 0 }}
+                                      animate={{ width: `${skill.level}%` }}
+                                      transition={{
+                                        duration: 0.8,
+                                        delay: skillIndex * 0.05 + 0.2,
+                                      }}
+                                      className={`h-2 bg-gradient-to-r ${category.color} rounded-full`}
+                                    />
+                                  </div>
+                                </div>
+                              </motion.div>
+                            );
+                          })}
                         </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             );
           })}
