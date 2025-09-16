@@ -32,12 +32,6 @@ export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-start relative overflow-hidden">
       <CodeAnimations />
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-secondary-500/10 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-accent-500/10 rounded-full blur-3xl animate-float" />
-      </div>
 
       <div className="w-full text-left relative z-10 pl-8 sm:pl-12 lg:pl-16 xl:pl-[108px]">
         <motion.div
