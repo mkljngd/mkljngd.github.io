@@ -3,9 +3,10 @@
 import { motion } from 'framer-motion'
 import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import CodeAnimations from './CodeAnimations'
+import { useTypewriter } from '../hooks/useTypewriter'
 
 export default function Hero() {
-  const [currentRole, setCurrentRole] = useState(0)
   const roles = [
     'Full Stack Developer',
     'Software Engineer',
@@ -13,12 +14,13 @@ export default function Hero() {
     'Problem Solver'
   ]
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentRole((prev) => (prev + 1) % roles.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [roles.length])
+  const { text: displayText, isDeleting } = useTypewriter({
+    words: roles,
+    typeSpeed: 100,
+    deleteSpeed: 50,
+    pauseTime: 2000,
+    loop: true
+  })
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about')
@@ -29,6 +31,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-start relative overflow-hidden">
+      <CodeAnimations />
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-64 sm:h-64 lg:w-96 lg:h-96 bg-primary-500/10 rounded-full blur-3xl animate-pulse-slow" />
@@ -71,14 +74,19 @@ export default function Hero() {
             className="h-12 sm:h-16 flex items-center justify-start mb-6 sm:mb-8"
           >
             <motion.span
-              key={currentRole}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="text-xl sm:text-2xl md:text-3xl font-semibold text-text-primary text-left"
+              className="text-xl sm:text-2xl md:text-3xl font-semibold text-text-primary text-left font-mono"
             >
-              {roles[currentRole]}
+              {displayText}
+              <motion.span
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 1, repeat: Infinity }}
+                className="text-primary-500"
+              >
+                |
+              </motion.span>
             </motion.span>
           </motion.div>
 
