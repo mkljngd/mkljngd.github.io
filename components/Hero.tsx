@@ -48,7 +48,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg text-gray-300 mb-4"
+            className="text-lg text-text-secondary mb-4"
           >
             Hello, I&apos;m
           </motion.p>
@@ -76,7 +76,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="text-xl sm:text-2xl md:text-3xl font-semibold text-white text-center px-4"
+              className="text-xl sm:text-2xl md:text-3xl font-semibold text-text-primary text-center px-4"
             >
               {roles[currentRole]}
             </motion.span>
@@ -87,7 +87,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-lg sm:text-xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
+            className="text-lg sm:text-xl text-text-secondary mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4"
           >
             MS Computer Science graduate from Boston University with expertise in full-stack development, 
             cloud architecture, and DevOps. Passionate about building scalable solutions and solving complex problems.
@@ -134,7 +134,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, y: -5 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 sm:p-4 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
+              className="p-3 sm:p-4 glass rounded-full text-text-secondary hover:text-text-primary transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
             >
               <Github size={20} className="sm:w-6 sm:h-6" />
             </motion.a>
@@ -145,7 +145,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, y: -5 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 sm:p-4 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
+              className="p-3 sm:p-4 glass rounded-full text-text-secondary hover:text-text-primary transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
             >
               <Linkedin size={20} className="sm:w-6 sm:h-6" />
             </motion.a>
@@ -154,7 +154,7 @@ export default function Hero() {
               href="mailto:mkljngd@bu.edu"
               whileHover={{ scale: 1.2, y: -5 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 sm:p-4 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
+              className="p-3 sm:p-4 glass rounded-full text-text-secondary hover:text-text-primary transition-colors duration-300 min-h-[48px] min-w-[48px] flex items-center justify-center"
             >
               <Mail size={20} className="sm:w-6 sm:h-6" />
             </motion.a>
@@ -167,12 +167,12 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 1.4 }}
             className="flex flex-col items-center"
           >
-            <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
+            <span className="text-sm text-text-secondary mb-2">Scroll to explore</span>
             <motion.button
               onClick={scrollToAbout}
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="p-2 glass rounded-full text-gray-300 hover:text-white transition-colors duration-300"
+              className="p-2 glass rounded-full text-text-secondary hover:text-text-primary transition-colors duration-300"
             >
               <ChevronDown size={24} />
             </motion.button>

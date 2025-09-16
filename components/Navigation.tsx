@@ -67,9 +67,9 @@ export default function Navigation() {
             className="flex items-center space-x-2 ml-4 xl:ml-0"
           >
             <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xs sm:text-sm">M</span>
+              <span className="text-text-primary font-bold text-xs sm:text-sm">M</span>
             </div>
-            <span className="text-lg sm:text-xl font-bold text-white">Mukul</span>
+            <span className="text-lg sm:text-xl font-bold text-text-primary">Mukul</span>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -84,8 +84,8 @@ export default function Navigation() {
                   whileTap={{ scale: 0.95 }}
                   className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-300 ${
                     activeSection === item.href.substring(1)
-                      ? 'text-primary-400 bg-white/10'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5'
+                      ? 'text-primary-500 bg-background-dark/20'
+                      : 'text-text-secondary hover:text-text-primary hover:bg-background-dark/10'
                   }`}
                 >
                   <Icon size={16} />
@@ -99,7 +99,7 @@ export default function Navigation() {
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 rounded-lg glass text-white min-h-[40px] min-w-[40px] flex items-center justify-center mr-4 xl:mr-0"
+            className="md:hidden p-2 rounded-lg glass text-text-primary min-h-[40px] min-w-[40px] flex items-center justify-center mr-4 xl:mr-0"
           >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </motion.button>
@@ -114,7 +114,7 @@ export default function Navigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden glass border-t border-white/10"
+            className="md:hidden glass border-t border-background-border"
           >
             <div className="container-custom py-4">
               <div className="flex flex-col space-y-2">
@@ -127,8 +127,8 @@ export default function Navigation() {
                       whileHover={{ x: 10 }}
                       className={`flex items-center space-x-3 px-4 py-4 rounded-lg transition-all duration-300 min-h-[48px] ${
                         activeSection === item.href.substring(1)
-                          ? 'text-primary-400 bg-white/10'
-                          : 'text-gray-300 hover:text-white hover:bg-white/5'
+                          ? 'text-primary-500 bg-background-dark/20'
+                          : 'text-text-secondary hover:text-text-primary hover:bg-background-dark/10'
                       }`}
                     >
                       <Icon size={18} />

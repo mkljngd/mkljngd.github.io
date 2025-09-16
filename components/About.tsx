@@ -36,7 +36,7 @@ export default function About() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">About Me</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
             A passionate software engineer with a strong foundation in computer science and hands-on experience in building scalable applications.
           </p>
         </motion.div>
@@ -50,8 +50,8 @@ export default function About() {
             className="space-y-6"
           >
             <div className="glass p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold mb-4 text-white">My Journey</h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
+              <h3 className="text-2xl font-bold mb-4 text-text-primary">My Journey</h3>
+              <div className="space-y-4 text-text-secondary leading-relaxed">
                 <p>
                   I&apos;m a recent MS Computer Science graduate from Boston University with a passion for building 
                   innovative software solutions. My journey began with a Bachelor&apos;s in Computer Engineering from 
@@ -82,10 +82,10 @@ export default function About() {
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                     className="glass p-3 sm:p-4 rounded-xl text-center"
                   >
-                    <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-400 mx-auto mb-2" />
-                    <div className="text-xs sm:text-sm text-gray-400 mb-1">{stat.label}</div>
-                    <div className="font-semibold text-white text-sm sm:text-base">{stat.value}</div>
-                    <div className="text-xs text-gray-500">{stat.detail}</div>
+                    <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-500 mx-auto mb-2" />
+                    <div className="text-xs sm:text-sm text-text-secondary mb-1">{stat.label}</div>
+                    <div className="font-semibold text-text-primary text-sm sm:text-base">{stat.value}</div>
+                    <div className="text-xs text-text-secondary/70">{stat.detail}</div>
                   </motion.div>
                 )
               })}
@@ -100,7 +100,7 @@ export default function About() {
             className="space-y-6"
           >
             <div className="glass p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold mb-6 text-white">What I Do</h3>
+              <h3 className="text-2xl font-bold mb-6 text-text-primary">What I Do</h3>
               <div className="space-y-6">
                 {interests.map((interest, index) => {
                   const Icon = interest.icon
@@ -116,8 +116,8 @@ export default function About() {
                         <Icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-white mb-2">{interest.title}</h4>
-                        <p className="text-gray-300 text-sm leading-relaxed">{interest.description}</p>
+                        <h4 className="font-semibold text-text-primary mb-2">{interest.title}</h4>
+                        <p className="text-text-secondary text-sm leading-relaxed">{interest.description}</p>
                       </div>
                     </motion.div>
                   )
@@ -127,7 +127,7 @@ export default function About() {
 
             {/* Key Strengths */}
             <div className="glass p-4 sm:p-6 rounded-2xl">
-              <h4 className="text-base sm:text-lg font-semibold text-white mb-4">Key Strengths</h4>
+              <h4 className="text-base sm:text-lg font-semibold text-text-primary mb-4">Key Strengths</h4>
               <div className="space-y-3">
                 {[
                   'Problem Solving',
@@ -145,7 +145,7 @@ export default function About() {
                     className="flex items-center space-x-3 group"
                   >
                     <div className="w-2 h-2 bg-gradient-to-r from-secondary-400 to-accent-400 rounded-full flex-shrink-0 group-hover:scale-125 transition-transform duration-300" />
-                    <span className="text-xs sm:text-sm text-gray-300 group-hover:text-white transition-colors duration-300">{strength}</span>
+                    <span className="text-xs sm:text-sm text-text-secondary group-hover:text-text-primary transition-colors duration-300">{strength}</span>
                   </motion.div>
                 ))}
               </div>

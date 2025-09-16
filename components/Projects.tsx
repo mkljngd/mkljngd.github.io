@@ -118,7 +118,7 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Featured Projects</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
             A showcase of my technical projects spanning full-stack development, machine learning, and system optimization.
           </p>
         </motion.div>
@@ -138,12 +138,12 @@ export default function Projects() {
                 {/* Project Header */}
                 <div className={`h-48 bg-gradient-to-r ${project.color} p-6 flex items-center justify-between`}>
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 bg-background-dark/30 rounded-lg flex items-center justify-center">
+                      <Icon className="w-6 h-6 text-text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white">{project.title}</h3>
-                      <div className="flex items-center space-x-4 text-white/80 text-sm">
+                      <h3 className="text-xl font-bold text-text-primary">{project.title}</h3>
+                      <div className="flex items-center space-x-4 text-text-primary/80 text-sm">
                         <div className="flex items-center space-x-1">
                           <Calendar size={14} />
                           <span>{project.timeline}</span>
@@ -160,20 +160,20 @@ export default function Projects() {
 
                 {/* Project Content */}
                 <div className="p-6">
-                  <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
+                  <p className="text-text-secondary mb-4 leading-relaxed">{project.description}</p>
                   
                   {/* Impact */}
-                  <div className="mb-4 p-3 bg-white/5 rounded-lg">
+                  <div className="mb-4 p-3 bg-background-dark/20 rounded-lg">
                     <div className="flex items-center space-x-2 text-sm">
                       <Cpu className="w-4 h-4 text-primary-400" />
-                      <span className="text-gray-300">Impact: </span>
-                      <span className="text-white font-medium">{project.impact}</span>
+                      <span className="text-text-secondary">Impact: </span>
+                      <span className="text-text-primary font-medium">{project.impact}</span>
                     </div>
                   </div>
 
                   {/* Technologies */}
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-white mb-2">Technologies Used</h4>
+                    <h4 className="text-sm font-semibold text-text-primary mb-2">Technologies Used</h4>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, techIndex) => (
                         <motion.span
@@ -192,7 +192,7 @@ export default function Projects() {
 
                   {/* Key Features */}
                   <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-white mb-2">Key Features</h4>
+                    <h4 className="text-sm font-semibold text-text-primary mb-2">Key Features</h4>
                     <ul className="space-y-2">
                       {project.features.slice(0, 3).map((feature, featureIndex) => (
                         <motion.li 
@@ -200,10 +200,10 @@ export default function Projects() {
                           initial={{ opacity: 0, x: -10 }}
                           animate={inView ? { opacity: 1, x: 0 } : {}}
                           transition={{ duration: 0.3, delay: index * 0.2 + featureIndex * 0.1 }}
-                          className="text-sm text-gray-300 flex items-center space-x-3 group"
+                          className="text-sm text-text-secondary flex items-center space-x-3 group"
                         >
                           <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full flex-shrink-0 group-hover:shadow-lg group-hover:shadow-green-400/50 transition-all duration-300" />
-                          <span className="group-hover:text-white transition-colors duration-300">{feature}</span>
+                          <span className="group-hover:text-text-primary transition-colors duration-300">{feature}</span>
                         </motion.li>
                       ))}
                     </ul>
@@ -234,7 +234,7 @@ export default function Projects() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mb-16"
         >
-          <h3 className="text-3xl font-bold text-center mb-8 text-white">Research Publications</h3>
+          <h3 className="text-3xl font-bold text-center mb-8 text-text-primary">Research Publications</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {researchPapers.map((paper, index) => {
               const Icon = paper.icon
@@ -255,11 +255,11 @@ export default function Projects() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-start justify-between">
-                        <h4 className="font-semibold text-white mb-2 group-hover:text-primary-300 transition-colors duration-300">{paper.title}</h4>
-                        <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-primary-400 transition-colors duration-300 flex-shrink-0 ml-2" />
+                        <h4 className="font-semibold text-text-primary mb-2 group-hover:text-primary-300 transition-colors duration-300">{paper.title}</h4>
+                        <ExternalLink className="w-4 h-4 text-text-secondary group-hover:text-primary-400 transition-colors duration-300 flex-shrink-0 ml-2" />
                       </div>
                       <p className="text-sm text-primary-400 mb-2">{paper.journal}</p>
-                      <p className="text-gray-300 text-sm leading-relaxed mb-3">{paper.description}</p>
+                      <p className="text-text-secondary text-sm leading-relaxed mb-3">{paper.description}</p>
                     </div>
                   </div>
                 </motion.a>

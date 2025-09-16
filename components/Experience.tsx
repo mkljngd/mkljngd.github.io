@@ -155,7 +155,7 @@ export default function Experience() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Experience & Education</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
             A journey of continuous learning and professional growth in software development and computer science.
           </p>
         </motion.div>
@@ -197,12 +197,12 @@ export default function Experience() {
                           <Icon className="w-6 h-6 text-white" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-xl font-bold text-white mb-1">{experience.title}</h3>
+                          <h3 className="text-xl font-bold text-text-primary mb-1">{experience.title}</h3>
                           <div className="flex items-center space-x-2 text-primary-400 font-semibold mb-2">
                             <Building size={16} />
                             <span>{experience.company}</span>
                           </div>
-                          <div className="flex items-center space-x-4 text-sm text-gray-400">
+                          <div className="flex items-center space-x-4 text-sm text-text-secondary">
                             <div className="flex items-center space-x-1">
                               <MapPin size={14} />
                               <span>{experience.location}</span>
@@ -217,7 +217,7 @@ export default function Experience() {
 
                       {/* Achievements */}
                       <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-white mb-3 flex items-center space-x-2">
+                        <h4 className="text-sm font-semibold text-text-primary mb-3 flex items-center space-x-2">
                           <Award size={16} />
                           <span>Key Achievements</span>
                         </h4>
@@ -228,10 +228,10 @@ export default function Experience() {
                               initial={{ opacity: 0, x: -20 }}
                               animate={inView ? { opacity: 1, x: 0 } : {}}
                               transition={{ duration: 0.5, delay: index * 0.2 + achievementIndex * 0.1 }}
-                              className="text-sm text-gray-300 flex items-start space-x-3 group"
+                              className="text-sm text-text-secondary flex items-start space-x-3 group"
                             >
                               <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mt-1.5 flex-shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-purple-400/50 transition-all duration-300" />
-                              <span className="group-hover:text-white transition-colors duration-300">{achievement}</span>
+                              <span className="group-hover:text-text-primary transition-colors duration-300">{achievement}</span>
                             </motion.li>
                           ))}
                         </ul>
@@ -239,7 +239,7 @@ export default function Experience() {
 
                       {/* Technologies */}
                       <div>
-                        <h4 className="text-sm font-semibold text-white mb-3 flex items-center space-x-2">
+                        <h4 className="text-sm font-semibold text-text-primary mb-3 flex items-center space-x-2">
                           <Code size={16} />
                           <span>Technologies & Skills</span>
                         </h4>
@@ -291,8 +291,8 @@ export default function Experience() {
                 <div className="w-12 h-12 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg flex items-center justify-center mx-auto mb-3">
                   <Icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <div className="text-2xl font-bold text-text-primary mb-1">{stat.value}</div>
+                <div className="text-sm text-text-secondary">{stat.label}</div>
               </motion.div>
             )
           })}

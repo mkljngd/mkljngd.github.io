@@ -8,7 +8,7 @@ export default function LoadingScreen() {
       initial={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-background-black"
     >
       <div className="text-center">
         <motion.div
@@ -33,7 +33,7 @@ export default function LoadingScreen() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-3xl font-bold text-white mb-2"
+          className="text-3xl font-bold text-text-primary mb-2"
         >
           Mukul Jangid
         </motion.h1>
@@ -42,7 +42,7 @@ export default function LoadingScreen() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-lg text-gray-300 mb-8"
+          className="text-lg text-text-secondary mb-8"
         >
           Full Stack Developer
         </motion.p>
