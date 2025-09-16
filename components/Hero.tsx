@@ -7,6 +7,8 @@ import CodeAnimations from './CodeAnimations'
 import { useTypewriter } from '../hooks/useTypewriter'
 
 export default function Hero() {
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true)
+  
   const roles = [
     'Full Stack Developer',
     'Software Engineer',
@@ -21,6 +23,19 @@ export default function Hero() {
     pauseTime: 2000,
     loop: true
   })
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      const windowHeight = window.innerHeight
+      
+      // Hide chevron when scrolled past 20% of viewport height
+      setShowScrollIndicator(scrollPosition < windowHeight * 0.2)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about')
@@ -162,24 +177,27 @@ export default function Hero() {
             </motion.a>
           </motion.div>
 
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 1.4 }}
-            className="flex flex-col items-center justify-center fixed bottom-8 left-1/2 transform -translate-x-1/2"
-          >
-            {/* <span className="text-sm text-text-secondary mb-2">Scroll to explore</span> */}
-            <motion.button
-              onClick={scrollToAbout}
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="p-2 glass rounded-full text-text-secondary hover:text-text-primary transition-colors duration-300"
-            >
-              <ChevronDown size={24} />
-            </motion.button>
-          </motion.div>
         </motion.div>
+
+      {/* Scroll Indicator - Fixed position, hidden when scrolled down */}
+      {showScrollIndicator && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.6, delay: 1.4 }}
+          className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center justify-center z-50"
+        >
+          <motion.button
+            onClick={scrollToAbout}
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="p-2 glass rounded-full text-text-secondary hover:text-text-primary transition-colors duration-300"
+          >
+            <ChevronDown size={24} />
+          </motion.button>
+        </motion.div>
+      )}
       </div>
     </section>
   )
