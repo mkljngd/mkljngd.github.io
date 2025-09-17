@@ -282,7 +282,7 @@ export default function Experience() {
                                   className="text-sm text-text-secondary flex items-start space-x-3 group"
                                 >
                                   <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full mt-1.5 flex-shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-orange-400/50 transition-all duration-300" />
-                                  <span className="group-hover:text-text-primary transition-colors duration-300">{achievement}</span>
+                                  <span className="group-hover:text-text-primary transition-colors duration-300 text-justify">{achievement}</span>
                                 </motion.li>
                               ))}
                             </ul>

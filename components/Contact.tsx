@@ -70,9 +70,6 @@ export default function Contact() {
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             <span className="gradient-text">Let&apos;s Connect</span>
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
-            Ready to discuss your next project or explore opportunities? I&apos;d love to hear from you.
-          </p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto">
@@ -84,11 +81,10 @@ export default function Contact() {
             className="space-y-8"
           >
             <div className="glass p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-text-primary mb-6">Get In Touch</h3>
-              <p className="text-text-secondary mb-8 leading-relaxed">
-                              I&apos;m always excited to work on challenging projects and collaborate with talented teams. 
-              Whether you need a full-stack developer, DevOps engineer, or technical consultant, 
-              I&apos;m ready to help bring your ideas to life.
+              <p className="text-text-secondary mb-8 leading-relaxed text-justify">
+                              I&apos;m currently exploring new opportunities to grow as a software engineer. 
+              Whether it&apos;s full-stack development, backend systems, or cloud & DevOps, 
+              I&apos;m excited to bring my experience in building scalable applications to a collaborative team.
               </p>
 
               {/* Contact Cards */}

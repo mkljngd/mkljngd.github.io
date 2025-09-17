@@ -160,7 +160,7 @@ export default function Projects() {
 
                 {/* Project Content */}
                 <div className="p-4">
-                  <p className="text-text-secondary mb-3 leading-relaxed text-sm">{project.description}</p>
+                  <p className="text-text-secondary mb-3 leading-relaxed text-sm text-justify">{project.description}</p>
                   
                   {/* Impact */}
                   <div className="mb-3 p-2.5 bg-background-dark/20 rounded-lg">
@@ -234,7 +234,7 @@ export default function Projects() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="mb-16"
         >
-          <h3 className="text-3xl font-bold text-center mb-8 text-text-primary">Research Publications</h3>
+          <h3 className="text-3xl font-bold text-center mb-8 text-orange-400">Research Publications</h3>
           <div className="grid md:grid-cols-2 gap-6">
             {researchPapers.map((paper, index) => {
               const Icon = paper.icon
