@@ -41,7 +41,7 @@ export default function Projects() {
       color: 'from-green-500 to-emerald-500',
       timeline: 'Sep - Dec 2024',
       status: 'Completed',
-      impact: 'Reduces food waste through intelligent planning',
+      impact: 'Reduces food waste through planning',
       github: 'https://github.com/mkljngd/Smart-Meal-Planner',
       demo: '#'
     },
@@ -124,7 +124,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Main Projects Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 gap-6 mb-16">
           {projects.map((project, index) => {
             const Icon = project.icon
             return (
@@ -136,19 +136,19 @@ export default function Projects() {
                 className="glass rounded-2xl overflow-hidden group hover:scale-105 transition-transform duration-300"
               >
                 {/* Project Header */}
-                <div className={`h-48 bg-gradient-to-r ${project.color} p-6 flex items-center justify-between`}>
+                <div className={`h-32 bg-gradient-to-r ${project.color} p-4 flex items-center justify-between`}>
                   <div className="flex items-center space-x-4">
                     <div className="w-12 h-12 bg-background-dark/30 rounded-lg flex items-center justify-center">
                       <Icon className="w-6 h-6 text-text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-text-primary">{project.title}</h3>
-                      <div className="flex items-center space-x-4 text-text-primary/80 text-sm">
+                      <h3 className="text-lg font-bold text-text-primary">{project.title}</h3>
+                      <div className="flex items-center space-x-3 text-text-primary/80 text-xs">
                         <div className="flex items-center space-x-1">
                           <Calendar size={14} />
                           <span>{project.timeline}</span>
                         </div>
-                        <span className={`px-2 py-1 rounded-full text-xs ${
+                        <span className={`px-1.5 py-0.5 rounded-full text-xs ${
                           project.status === 'Completed' ? 'bg-green-500/20' : 'bg-blue-500/20'
                         }`}>
                           {project.status}
@@ -159,22 +159,22 @@ export default function Projects() {
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <p className="text-text-secondary mb-4 leading-relaxed">{project.description}</p>
+                <div className="p-4">
+                  <p className="text-text-secondary mb-3 leading-relaxed text-sm">{project.description}</p>
                   
                   {/* Impact */}
-                  <div className="mb-4 p-3 bg-background-dark/20 rounded-lg">
-                    <div className="flex items-center space-x-2 text-sm">
-                      <Cpu className="w-4 h-4 text-primary-400" />
+                  <div className="mb-3 p-2.5 bg-background-dark/20 rounded-lg">
+                    <div className="flex items-center space-x-2 text-xs">
+                      <Cpu className="w-3 h-3 text-primary-400" />
                       <span className="text-text-secondary">Impact: </span>
                       <span className="text-text-primary font-medium">{project.impact}</span>
                     </div>
                   </div>
 
                   {/* Technologies */}
-                  <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-text-primary mb-2">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2">
+                  <div className="mb-3">
+                    <h4 className="text-xs font-semibold text-text-primary mb-2">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-1.5">
                       {project.technologies.map((tech, techIndex) => (
                         <motion.span
                           key={tech}
@@ -182,7 +182,7 @@ export default function Projects() {
                           animate={inView ? { opacity: 1, scale: 1 } : {}}
                           transition={{ duration: 0.3, delay: index * 0.2 + techIndex * 0.05 }}
                           whileHover={{ scale: 1.05 }}
-                          className="px-3 py-1.5 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 border border-primary-400/30 rounded-full text-xs font-medium text-primary-300 hover:from-primary-500/30 hover:to-secondary-500/30 hover:border-primary-400/50 hover:text-primary-200 transition-all duration-300 shadow-sm hover:shadow-primary-500/25"
+                          className="px-2 py-1 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 border border-primary-400/30 rounded-full text-xs font-medium text-primary-300 hover:from-primary-500/30 hover:to-secondary-500/30 hover:border-primary-400/50 hover:text-primary-200 transition-all duration-300 shadow-sm hover:shadow-primary-500/25"
                         >
                           {tech}
                         </motion.span>
@@ -191,16 +191,16 @@ export default function Projects() {
                   </div>
 
                   {/* Key Features */}
-                  <div className="mb-6">
-                    <h4 className="text-sm font-semibold text-text-primary mb-2">Key Features</h4>
-                    <ul className="space-y-2">
+                  <div className="mb-4">
+                    <h4 className="text-xs font-semibold text-text-primary mb-2">Key Features</h4>
+                    <ul className="space-y-1.5">
                       {project.features.slice(0, 3).map((feature, featureIndex) => (
                         <motion.li 
                           key={featureIndex} 
                           initial={{ opacity: 0, x: -10 }}
                           animate={inView ? { opacity: 1, x: 0 } : {}}
                           transition={{ duration: 0.3, delay: index * 0.2 + featureIndex * 0.1 }}
-                          className="text-sm text-text-secondary flex items-center space-x-3 group"
+                          className="text-xs text-text-secondary flex items-center space-x-2 group"
                         >
                           <div className="w-1.5 h-1.5 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full flex-shrink-0 group-hover:shadow-lg group-hover:shadow-green-400/50 transition-all duration-300" />
                           <span className="group-hover:text-text-primary transition-colors duration-300">{feature}</span>
@@ -210,14 +210,14 @@ export default function Projects() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-2">
                     <motion.a
                       href={project.github}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex-1 btn-secondary flex items-center justify-center space-x-2 text-sm"
+                      className="flex-1 btn-secondary flex items-center justify-center space-x-1.5 text-xs py-2"
                     >
-                      <Github size={16} />
+                      <Github size={14} />
                       <span>Code</span>
                     </motion.a>
                   </div>
