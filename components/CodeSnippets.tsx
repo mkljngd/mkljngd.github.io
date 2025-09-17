@@ -114,21 +114,21 @@ LIMIT 5;`,
       position: { x: '75%', y: '15%' },
       delay: 3
     },
-    {
-      id: 'kubernetes-deployment',
-      title: 'Kubernetes Deployment',
-      language: 'yaml',
-      code: `apiVersion: apps/v1
-kind: Deployment
-spec:
-  replicas: 3
-  template:
-    spec:
-      containers:
-      - image: myapp:latest`,
-      position: { x: '50%', y: '45%' },
-      delay: 5
-    },
+//     {
+//       id: 'kubernetes-deployment',
+//       title: 'Kubernetes Deployment',
+//       language: 'yaml',
+//       code: `apiVersion: apps/v1
+// kind: Deployment
+// spec:
+//   replicas: 3
+//   template:
+//     spec:
+//       containers:
+//       - image: myapp:latest`,
+//       position: { x: '50%', y: '45%' },
+//       delay: 5
+//     },
     {
       id: 'bash-automation',
       title: 'Automation Script',

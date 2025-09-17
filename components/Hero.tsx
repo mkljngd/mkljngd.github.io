@@ -3,7 +3,6 @@
 import { motion } from 'framer-motion'
 import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import CodeAnimations from './CodeAnimations'
 import { useTypewriter } from '../hooks/useTypewriter'
 
 export default function Hero() {
@@ -46,8 +45,6 @@ export default function Hero() {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-start relative overflow-hidden">
-      <CodeAnimations />
-
       <div className="w-full text-left relative z-10 pl-8 sm:pl-12 lg:pl-16 xl:pl-[108px]">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
