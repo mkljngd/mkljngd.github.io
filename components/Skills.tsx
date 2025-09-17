@@ -46,7 +46,7 @@ export default function Skills() {
     {
       title: "Languages & Frameworks",
       icon: Code,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-primary-500 to-orange-600",
       skills: [
         { name: "Python", level: 95, icon: FileCode },
         { name: "Django", level: 95, icon: Server },
@@ -63,7 +63,7 @@ export default function Skills() {
     {
       title: "Cloud & DevOps",
       icon: Cloud,
-      color: "from-purple-500 to-pink-500",
+      color: "from-orange-500 to-red-500",
       skills: [
         { name: "Docker", level: 90, icon: Container },
         { name: "AWS", level: 80, icon: Globe },
@@ -77,7 +77,7 @@ export default function Skills() {
     {
       title: "Databases & Tools",
       icon: Database,
-      color: "from-green-500 to-emerald-500",
+      color: "from-orange-400 to-orange-500",
       skills: [
         { name: "PostgreSQL", level: 85, icon: Database },
         { name: "MySQL", level: 80, icon: Database },
@@ -94,7 +94,7 @@ export default function Skills() {
     {
       title: "Development Practices",
       icon: Server,
-      color: "from-orange-500 to-red-500",
+      color: "from-orange-600 to-orange-800",
       skills: [
         { name: "Code Refactoring", level: 95, icon: FileCog },
         { name: "Performance Tuning", level: 90, icon: Gauge },
