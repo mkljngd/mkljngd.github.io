@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import { useState } from 'react'
 import { 
   Calendar,
   MapPin,
@@ -14,7 +15,9 @@ import {
   Database,
   Briefcase,
   GraduationCap,
-  BookOpen
+  BookOpen,
+  ChevronDown,
+  ChevronUp
 } from 'lucide-react'
 
 export default function Experience() {
@@ -22,6 +25,9 @@ export default function Experience() {
     triggerOnce: true,
     threshold: 0.1
   })
+  
+  const [expandedCard, setExpandedCard] = useState<number | null>(null)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   const experiences = [
     {
@@ -99,14 +105,13 @@ export default function Experience() {
       title: 'Master of Science in Computer Science',
       company: 'Boston University',
       location: 'Boston, MA',
-      period: 'Jan 2025',
+      period: 'Sep 2023 – Jan 2025',
       icon: GraduationCap,
       color: 'from-indigo-500 to-purple-500',
       achievements: [
         'GPA: 3.67 / 4.0',
         'Specialized in Full-Stack Development and Cloud Computing',
         'Completed advanced coursework in Machine Learning and System Design',
-        'Published research papers in Springer journals',
         'Led multiple team projects with production-grade implementations'
       ],
       technologies: ['Computer Science', 'Machine Learning', 'System Design', 'Research', 'Team Leadership']
@@ -169,6 +174,19 @@ export default function Experience() {
             {allExperiences.map((experience, index) => {
               const Icon = experience.icon
               const isLeft = index % 2 === 0
+              const isExpanded = expandedCard === index || hoveredCard === index
+              
+              const handleCardClick = () => {
+                setExpandedCard(expandedCard === index ? null : index)
+              }
+              
+              const handleMouseEnter = () => {
+                setHoveredCard(index)
+              }
+              
+              const handleMouseLeave = () => {
+                setHoveredCard(null)
+              }
               
               return (
                 <motion.div
@@ -189,7 +207,10 @@ export default function Experience() {
                   }`}>
                     <motion.div
                       whileHover={{ scale: 1.02 }}
-                      className="glass p-6 rounded-2xl"
+                      className="glass p-6 rounded-2xl cursor-pointer transition-all duration-300"
+                      onClick={handleCardClick}
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
                     >
                       {/* Header */}
                       <div className="flex items-start space-x-4 mb-4">
@@ -197,7 +218,16 @@ export default function Experience() {
                           <Icon className="w-6 h-6 text-white" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="text-xl font-bold text-text-primary mb-1">{experience.title}</h3>
+                          <div className="flex items-center justify-between">
+                            <h3 className="text-xl font-bold text-text-primary mb-1">{experience.title}</h3>
+                            <motion.div
+                              animate={{ rotate: isExpanded ? 180 : 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="text-text-secondary hover:text-primary-400 transition-colors"
+                            >
+                              <ChevronDown size={20} />
+                            </motion.div>
+                          </div>
                           <div className="flex items-center space-x-2 text-primary-400 font-semibold mb-2">
                             <Building size={16} />
                             <span>{experience.company}</span>
@@ -214,50 +244,73 @@ export default function Experience() {
                           </div>
                         </div>
                       </div>
-
-                      {/* Achievements */}
-                      <div className="mb-4">
-                        <h4 className="text-sm font-semibold text-text-primary mb-3 flex items-center space-x-2">
-                          <Award size={16} />
-                          <span>Key Achievements</span>
-                        </h4>
-                        <ul className="space-y-2">
-                          {experience.achievements.map((achievement, achievementIndex) => (
-                            <motion.li
-                              key={achievementIndex}
-                              initial={{ opacity: 0, x: -20 }}
-                              animate={inView ? { opacity: 1, x: 0 } : {}}
-                              transition={{ duration: 0.5, delay: index * 0.2 + achievementIndex * 0.1 }}
-                              className="text-sm text-text-secondary flex items-start space-x-3 group"
-                            >
-                              <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full mt-1.5 flex-shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-purple-400/50 transition-all duration-300" />
-                              <span className="group-hover:text-text-primary transition-colors duration-300">{achievement}</span>
-                            </motion.li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Technologies */}
-                      <div>
-                        <h4 className="text-sm font-semibold text-text-primary mb-3 flex items-center space-x-2">
-                          <Code size={16} />
-                          <span>Technologies & Skills</span>
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {experience.technologies.map((tech, techIndex) => (
-                            <motion.span
-                              key={tech}
-                              initial={{ opacity: 0, scale: 0.8 }}
-                              animate={inView ? { opacity: 1, scale: 1 } : {}}
-                              transition={{ duration: 0.3, delay: index * 0.2 + techIndex * 0.05 }}
-                              whileHover={{ scale: 1.05 }}
-                              className="px-3 py-1.5 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 border border-primary-400/30 rounded-full text-xs font-medium text-primary-300 hover:from-primary-500/30 hover:to-secondary-500/30 hover:border-primary-400/50 hover:text-primary-200 transition-all duration-300 shadow-sm hover:shadow-primary-500/25"
-                            >
-                              {tech}
-                            </motion.span>
-                          ))}
+                      
+                      {/* Hint Text */}
+                      {!isExpanded && (
+                        <div className="text-center py-2 text-sm text-text-secondary/70 border-t border-primary-400/20 mt-4">
+                          Hover or click to view achievements and technologies
                         </div>
-                      </div>
+                      )}
+
+                      {/* Expandable Content */}
+                      <motion.div
+                        initial={false}
+                        animate={{
+                          height: isExpanded ? 'auto' : 0,
+                          opacity: isExpanded ? 1 : 0
+                        }}
+                        transition={{
+                          duration: 0.4,
+                          ease: 'easeInOut'
+                        }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-4 border-t border-primary-400/20">
+                          {/* Achievements */}
+                          <div className="mb-6">
+                            <h4 className="text-sm font-semibold text-text-primary mb-3 flex items-center space-x-2">
+                              <Award size={16} />
+                              <span>Key Achievements</span>
+                            </h4>
+                            <ul className="space-y-2">
+                              {experience.achievements.map((achievement, achievementIndex) => (
+                                <motion.li
+                                  key={achievementIndex}
+                                  initial={{ opacity: 0, x: -20 }}
+                                  animate={isExpanded ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                                  transition={{ duration: 0.5, delay: achievementIndex * 0.1 }}
+                                  className="text-sm text-text-secondary flex items-start space-x-3 group"
+                                >
+                                  <div className="w-2 h-2 bg-gradient-to-r from-orange-400 to-amber-400 rounded-full mt-1.5 flex-shrink-0 group-hover:scale-110 group-hover:shadow-md group-hover:shadow-orange-400/50 transition-all duration-300" />
+                                  <span className="group-hover:text-text-primary transition-colors duration-300">{achievement}</span>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Technologies */}
+                          <div>
+                            <h4 className="text-sm font-semibold text-text-primary mb-3 flex items-center space-x-2">
+                              <Code size={16} />
+                              <span>Technologies & Skills</span>
+                            </h4>
+                            <div className="flex flex-wrap gap-2">
+                              {experience.technologies.map((tech, techIndex) => (
+                                <motion.span
+                                  key={tech}
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  animate={isExpanded ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                                  transition={{ duration: 0.3, delay: techIndex * 0.05 }}
+                                  whileHover={{ scale: 1.05 }}
+                                  className="px-3 py-1.5 bg-gradient-to-r from-primary-500/20 to-secondary-500/20 border border-primary-400/30 rounded-full text-xs font-medium text-primary-300 hover:from-primary-500/30 hover:to-secondary-500/30 hover:border-primary-400/50 hover:text-primary-200 transition-all duration-300 shadow-sm hover:shadow-primary-500/25"
+                                >
+                                  {tech}
+                                </motion.span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
                     </motion.div>
                   </div>
                 </motion.div>
